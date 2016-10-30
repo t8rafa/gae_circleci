@@ -4,7 +4,7 @@ dependencies:
 
 test:
   override:
-  	- nosetests --with-gae --gae-lib-root ../google_appengine
+  	- nosetests --with-gae
     - coverage run --source=main.py -m nose2.__main__ -v
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
