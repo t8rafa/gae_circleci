@@ -4,6 +4,6 @@ dependencies:
 
 test:
   override:
-    - coverage run --source=gae_circle -m nose2.__main__ -v
+    - coverage run -m nose2.__main__ -v
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
