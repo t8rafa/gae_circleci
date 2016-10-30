@@ -4,4 +4,4 @@ dependencies:
     
 test:
   override:
-    - ./test_script.sh
+    - test_script.sh
