@@ -4,6 +4,6 @@ dependencies:
 
 test:
   override:
-    - coverage run -m nose2.__main__ -v
+    - coverage run --source=main.py -m nose2.__main__ -v
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
