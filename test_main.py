@@ -16,6 +16,10 @@ import unittest
 import webtest
 import main
 
+sys.path.insert(1, 'google-cloud-sdk/platform/google_appengine/')
+sys.path.insert(1, 'google-cloud-sdk/platform/google_appengine/lib/yaml/lib')
+sys.path.insert(1, 'lib')
+
 class MainTests(unittest.TestCase):
 	
 	def test_get(self):
