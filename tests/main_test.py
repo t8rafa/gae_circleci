@@ -14,23 +14,19 @@
 
 # -*- coding: utf-8 -*-
 
-import unittest
+import sys
+import os
+
+dir = os.path.dirname(__file__)
+filename = os.path.join(dir, '../hello_world/')
+sys.path.insert(0, filename)
+
 import webtest
+import unittest
 import main
 
-sys.path.insert(1, 'google-cloud-sdk/platform/google_appengine/')
-sys.path.insert(1, 'google-cloud-sdk/platform/google_appengine/lib/yaml/lib')
 
 class MainTests(unittest.TestCase):
-	def setUp(self):
-        # First, create an instance of the Testbed class.
-        self.testbed = testbed.Testbed()
-        # Then activate the testbed, which prepares the service stubs for use.
-        self.testbed.activate()
-
-    def tearDown(self):
-        self.testbed.deactivate()
-	
 	def test_get(self):
 	    app = webtest.TestApp(main.app)
 	
@@ -38,6 +34,6 @@ class MainTests(unittest.TestCase):
 	
 	    assert response.status_int == 200
 	    assert response.body == 'Hello, World!'
-	    
+
 if __name__ == '__main__':
     unittest.main()
