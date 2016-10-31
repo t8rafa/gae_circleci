@@ -21,6 +21,14 @@ sys.path.insert(1, 'google-cloud-sdk/platform/google_appengine/lib/yaml/lib')
 sys.path.insert(1, 'lib')
 
 class MainTests(unittest.TestCase):
+	def setUp(self):
+        # First, create an instance of the Testbed class.
+        self.testbed = testbed.Testbed()
+        # Then activate the testbed, which prepares the service stubs for use.
+        self.testbed.activate()
+
+    def tearDown(self):
+        self.testbed.deactivate()
 	
 	def test_get(self):
 	    app = webtest.TestApp(main.app)
