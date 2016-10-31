@@ -1,3 +1,9 @@
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
 test:
   override:
-    - echo "test"
+    - coverage run --source=hello_world -m nose2.__main__ -v
+  post:
+    - coverage html -d $CIRCLE_ARTIFACTS
